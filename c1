@@ -1,0 +1,15 @@
+function sumAll(arr) {
+  let result = 0;
+  arr.sort((a,b) => a - b);
+  for (let i = arr[0]; i <= arr[1]; i++){
+    result += i;
+  }
+  return result
+}
+
+sumAll([1, 4]);
+
+//The goal here is to sum all the numbers in a range given by 'arr'
+//The numbers aren't necessarily in ascending order, so we have to sort them in ascending order first to make the algorithm simpler
+//Then we set the counter to start at the 1st number in the range and to end at the last number in the range
+//The counter's current value in the loop is added to the result variable and returned after the loop terminates
