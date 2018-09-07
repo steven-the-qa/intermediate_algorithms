@@ -1,0 +1,13 @@
+function spinalCase(str) {
+  // "It's such a fine line between stupid, and clever."
+  // --David St. Hubbins
+  let step1 = str.replace(/ |_/g,'-');
+  let step2 = step1.replace(/([a-z])\W*([A-Z])/g,'$1-$2');
+  return step2.toLowerCase();
+}
+
+spinalCase('This Is Spinal Tap');
+
+//First I change any spaces or underscores or 'separator' characters to hyphens '-'
+//Second I go back through the string to find instances of 'camelCase' and fit a hyphen between words
+//Third I return the string after lowercasing it
