@@ -4,8 +4,7 @@ function whatIsInAName(collection, source) {
   // Only change code below this line
 let keysList = Object.keys(source);
 arr = collection.filter(obj => {
-  for (let i = 0; i < keysList.length; i++){
-    console.log(source[keysList[i]]);
+  for (let i in keysList){
     if (obj[keysList[i]] !== source[keysList[i]]){
       return false
     }
