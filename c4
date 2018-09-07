@@ -1,0 +1,43 @@
+function whatIsInAName(collection, source) {
+  // What's in a name?
+  var arr = [];
+  // Only change code below this line
+let keysList = Object.keys(source);
+arr = collection.filter(obj => {
+  for (let i = 0; i < keysList.length; i++){
+    console.log(source[keysList[i]]);
+    if (obj[keysList[i]] !== source[keysList[i]]){
+      return false
+    }
+  }
+  return true
+});
+return arr
+  // Only change code above this line
+
+}
+
+whatIsInAName([{ first: "Romeo", last: "Montague" }, 
+{ first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+
+/*There's a lot of funny stuff to talk about in this one, but the short version is this took 3 days for me to figure out, and I suppose
+you could say I finally cracked and looked up steadily more helpful hints until I just needed to see the forum discuss some of their
+solutions*/
+
+/*It's not that I didn't have the right idea. I was SO CLOSE. Like it was awful how close I was when I finally looked in the forum
+for some guidance. The only 2 things I did wrong were the following:
+
+- My 'if' statement was the same, but it had a condition linked by the AND '&&' operator that checked the object in collection for the 
+same property it was about to check with the condition we see here anyway, so it was redundant and somehow caused an issue in the program, 
+and it was probably just a syntactic issue
+- My 'return false' statement was just 'return' because I figured it did the same thing, and my 'return true' statement was 'return obj'
+
+Obviously my solution still is unique because I created a list of keys as a variable and I didn't see anyone else do that, so it's got
+a unique flavor to it, which I'm proud of! But it's annoying that a simple redundancy in my 'if' statement and a spot of forgetfulness 
+about how a 'filter' method NEEDS A 'RETURN TRUE' STATEMENT so it can evaluate some of the items it iterates over as valid for the new 
+array being saved in the 'arr' variable! Ugh, but I have to admit, those are simple lessons for me to take with me as I continue coding.
+*/ 
+
+/* One thing different about this 2nd pass I'm doing through all the intermediate algorithms that I haven't visited since January is the 
+simple but very POWERFUL fact that I'm documenting every step of the way. So if I ever get confused on a similar problem in the future, 
+I have my resources right here with me from trials already conquered. Onward! */
