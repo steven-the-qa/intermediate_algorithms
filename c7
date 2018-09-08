@@ -1,0 +1,23 @@
+function myReplace(str, before, after) {
+  let beforeArr = before.split("");
+  let afterArr = after.split("");
+  if (beforeArr[0] === beforeArr[0].toUpperCase()){
+    if (afterArr[0] !== afterArr[0].toUpperCase()){
+      afterArr.splice(0,1,afterArr[0].toUpperCase());
+      return str.replace(before,afterArr.join(""));
+    }
+  }
+  else {
+  return str.replace(before, after);
+  }
+}
+
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+
+//This would normally be a pretty easy problem to solve, but they added the complexity of needing to check for TitleCase
+//The first step I take is to split the 'before' and 'after' words into arrays
+//The second step is to check the 'before' word for TitleCase
+//If it has TitleCase, I check to see if the 'after' word does already too
+//If 'before' IS TitleCase but 'after' ISN'T, then I make 'after' TitleCase
+//Then I join the array and return the TitleCased string in the replace method
+//The last step is to do the normal search & replace method for the cases that don't need TitleCasing 
