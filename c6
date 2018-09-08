@@ -1,0 +1,37 @@
+function translatePigLatin(str) {
+  let vowelRegex, arr, firstPart, secondPart;
+  vowelRegex = /^[aeiou]/;
+  if (str.match(vowelRegex)) {
+    return str.concat('way');
+  }
+  else if (str.match(/[aeiou]/)) {
+    arr = str.split("");
+    function firstVowelIndex () {
+      for (let i = 0; i < arr.length; i++){
+        if (arr[i].match(/[aeiou]/)){
+        return i
+        }
+      }
+    }
+    firstPart = arr.slice(firstVowelIndex()).join("");
+    secondPart = arr.slice(0,firstVowelIndex()).join("");
+  return firstPart.concat(secondPart).concat('ay');
+  }
+ else {
+   return str.concat('ay');
+ }
+}
+
+translatePigLatin("consonant");
+
+//First I declare my variables
+//Second I create my vowel regex to check a word to see if it begins with a vowel
+//My first 'if' statement adds 'way' to words that start with a vowel
+/* My second 'if' statement does a few things:
+1) Checks to see if the word HAS vowels, but doesn't START with them (first 'if' statement took care of those cases)
+2) Declares a function that finds the index of the first vowel in the word, thus creating a breaking point
+3) Saves the initial consonants of the word to a variable ('secondPart')
+4) Saves the rest of the word to another variable ('firstPart')
+5) Returns the pieces in order with the 'ay' suffix to convert the word to Pig Latin
+*/
+//My 'else' statement is a catchall for any words that don't contain vowels
