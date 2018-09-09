@@ -1,0 +1,31 @@
+function uniteUnique(arr) {
+  let result = [];
+  for (let item = 0; item < arguments.length; item++) {
+    for (let value = 0; value < arguments[item].length; value++){
+      if (result.indexOf(arguments[item][value]) === -1){
+        result.push(arguments[item][value]);
+      }
+    }
+  }
+  return result
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+/* This algorithm takes multiple arrays as arguments and treats the arrays as a set. The algorithm finds the unique values in the set and 
+returns an array with all these unique values. The values in the result array are in the same order as they appear in the arguments set. */
+
+//The above test case returns [1,3,2,5,4] because that is the order of the arguments set exclusing any duplicates
+
+/*
+Step 1: Create an empty array to store the unique values in.
+Step 2: Start a nested 'for' loop to look through each value and see if it already in the 'result' array. Each value that is not yet present 
+gets pushed to it.
+Step 3: Return the array of unique values.
+*/
+
+/* This problem illustrates the importance of choosing the right data structure. Here, a stack is most useful, because we want the 'result' 
+array to maintain the order of the arguments set. */
+
+/* If we had instead wanted to later retrieve these unique values from the 'result' array in the proper order, 
+a queue would have worked better and we would have used the '.unshift()' method instead of '.push()' */
