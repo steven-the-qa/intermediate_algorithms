@@ -1,0 +1,35 @@
+function pairElement(str) {
+  let result = [];
+  let strand = str.split("");
+  for (let i = 0; i < strand.length; i++){
+    switch (strand[i]) {
+      case 'A':
+      result.push(['A','T']);
+      break;
+      case 'T':
+      result.push(['T','A']);
+      break;
+      case 'C':
+      result.push(['C','G']);
+      break;
+      case 'G':
+      result.push(['G','C']);
+      break;
+    }
+  }
+return result
+}
+
+pairElement("GCG");
+
+
+//I saw this algorithm as a perfect opportunity to use a Javascript 'switch' statement!
+/*
+Step 1: Declare my variables. I made one for the result array, and one for the string split into an array so I can access each letter.
+Step 2: Set up the loop. I must iterate through every letter, changing each one as I go. 
+Step 3: Create my 'switch' statement. For each letter, I will require a different pair letter to be added to the 'result' array, so
+a 'switch' statement is a more economical use of code than the several 'if' statements that would be the alternative here.
+Step 4: Format the output properly. Initially I didn't do this and no tests passed. I realized each pair needed to be in its own array, 
+each letter in its own index, and that array passed to the result array.
+Step 5: Return the 'result' array
+*/
