@@ -1,0 +1,24 @@
+function fearNotLetter(str) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split("");
+  let range = str.split("");
+  if (str === alphabet){
+    return undefined
+  }
+  for (let i = 0; i < range.length; i++){
+    let start = alphabet.indexOf(range[0]);
+    if (range[i] != alphabet[start + i]){
+      return alphabet[start + i];
+    }
+  }
+}
+
+fearNotLetter("abce");
+
+//This algorithm looks at a group of alphabetically ordered letters and determines which letter is missing
+/*
+Step 1: Declare my variables. I create an array of the entire alphabet for reference, and an array for the string I need to investigate.
+Step 2: Input screening. I need to get rid of the exception cases where no letters are missing before I begin checking the others.
+Step 3: Create a reference variable. The range won't always start at 'a', so I need to know which index to start at in 'alphabet' each time
+Step 4: Start the loop. Look through the 'range' and break the loop whenever there is a letter gone, and return whichever letter is at 
+that index in 'alphabet'
+*/
