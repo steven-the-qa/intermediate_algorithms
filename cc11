@@ -1,0 +1,36 @@
+function convertHTML(str) {
+  // &colon;&rpar;
+  let arr = str.split("");
+  for (let i in arr){
+    let char = arr[i];
+    if (char === '&' || '<' || '>'){
+      switch(char){
+        case '&':
+          arr[i] = '&amp;';
+          break;
+        case '<':
+          arr[i] = '&lt;';
+          break;
+        case '>':
+          arr[i] = '&gt;';
+          break;
+        case '"':
+          arr[i] = '&quot;';
+          break;
+        case "'":
+          arr[i] = '&apos;';
+          break;
+      }
+    }
+  }
+  return arr.join("")
+}
+convertHTML("Dolce & Gabbana");
+
+//This algorithm just searches through a string for non-alphanumeric characters and converts them to the HTML equivalents
+/*
+Step 1: Convert the string to an array. Because it's easier to use array methods, literally that's the only reason.
+Step 2: Loop through the characters in the array and qualify the input before you start the switch statement
+Step 3: For each type of character, switch out its HTML replacement and save it as the new current item in the array
+Step 4: After converting the array back to its string form, return it.
+*/
