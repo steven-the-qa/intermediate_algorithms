@@ -1,0 +1,29 @@
+function sumPrimes(num) {
+var primes = [];
+for(let i = 3; i <= num; i += 2) {
+  if(primes.every(function(prime){return i % prime != 0})) {
+    primes.push(i);
+  }
+}
+primes.unshift(2);
+let result = primes.reduce((a,b) => {
+  return a + b
+});
+return result
+}
+sumPrimes(10);
+
+//The challenge said it's fine if we had to use someone else's code to create an array of prime numbers, so that's what I did
+//After that, all I needed to do was sum the contents of the array and return the sum
+
+/* Truthfully, I wanted to figure this out on my own, but I'm not sure I would have. My approach to the problem was kind of 
+in the right direction. Like, my main approach on Day 1 (today is Day 2) was to create an array of every number between 2 and the given 
+'num', and use the modulus operator to divide 'num' by each item. If there wasn't a zero remainder, I'd add the number to an array. I tried 
+the filter method and a for loop and none of it seemed to work past the first couple numbers */
+
+/* Today I realized I'd need to divide each number in that range array by every number before it, and that means I'd have to have counters 
+within counters using the modulus operator to sort primes and composites. I'll admit that was beyond what I knew how to do, and I don't fully 
+understand why this solution works for finding primes. I can read the code, but I don't get why we're dividing the counter by the items in the 
+primes array. I'm guessing it's an optimized version of a more traditional solution, something to do with needing to only check if primes 
+can be divided by their own previous primes. I don't really remember that stuff from math, but I probably needed it for this. That's probably 
+why they left that portion of the challenge optional, but hey! At least I have 1 solution for that problem now for the future. */
