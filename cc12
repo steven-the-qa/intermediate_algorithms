@@ -1,0 +1,38 @@
+function sumFibs(num) {
+  let fibArr = [1,1];
+  if (num === 1){
+    return 1
+  }
+  else {
+    for (let i = 2; fibArr[fibArr.length-1] <= num; i++){
+      fibArr[i] = fibArr[i-1] + fibArr[i-2];
+      if (fibArr[i] > num) {
+        fibArr.pop();
+        break;
+      }
+    }
+  }
+  let oddNums = fibArr.filter(a => {
+    return (a%2 !== 0)
+  });
+  let sum = oddNums.reduce((a,b) => {
+    return a + b
+  });
+  return sum
+}
+
+sumFibs(4);
+
+//This algorithm sums every odd Fibonacci number leading up to or equalling 'num'
+/*
+Step 1: Declare the Fibonacci array starting with the first 2 numbers, because you'll need the first 2 to get the 3rd
+Step 2: Return '1' for the 'num' value of '1', because that's the only Fibonacci number less than or equal to '1'. It's a case that doesn't  
+follow the algorithm we want to write, so it's best to take care of it right away.
+Step 3: For every other value, we start a loop that will build on the 'fibArr' array, feeding it Fibonacci numbers until we hit the upper 
+limit of 'num'
+Step 4: The algorithm would sometimes exceed 'num' for the last value of 'fibArr', so I added a condition to take care of that problem 
+before the loop terminated so the last number of the array would always be less than or equal to 'num'
+Step 5: Filter 'fibArr' for all its odd numbers and save them in a variable called 'oddNums'
+Step 6: Reduce 'oddNums' to the sum of its values (the solution)
+Step 7: Return the sum
+*/
