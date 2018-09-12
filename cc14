@@ -1,0 +1,47 @@
+function smallestCommons(arr) {
+  arr.sort();
+  let min = Math.min(...arr);
+  let max = Math.max(...arr);
+  let range = [];
+  for (let i = min; i <= max; i++){
+    range.push(i);
+  }
+
+  function gcd(a,b){
+    let temp;
+    while (b != 0){
+      temp = b;
+      b = a % b;
+      a = temp;
+    }
+    return a;
+  }
+  
+  function lcm(a,b){
+    return Math.abs(a * b) / gcd(a,b);
+  }
+ 
+  return range.reduce((a,b) => {
+    return lcm(a,b);
+  })
+}
+
+
+smallestCommons([1,5]);
+
+//I mixed and matched ideas from solutions I found on the web for this one
+/* I admit I went into this quite intimidated because not only had I not needed to know GCD and LCM for over 5 years now, I also didn't know 
+what this "Euclidian Algorithm" was for finding the LCM of MULTIPLE numbers, so I had to do some digging on that! Admittedly I took on 
+a more passive learning role for this challenge than I originally wanted to. But I believe knowing how a GCD and LCM algorithm work will help 
+me a lot, especially knowing that using the 'reduce()' method can help with recursion even with complex math operations like this one! */
+//So while I didn't really know how to solve this one, I'm glad I sought out an explanation of how to do it. I think I benefited more from it
+
+//This algorithm sorts the passed array to make the construction of the 'range' array easier
+//Then it declares 2 functions: 1 to find GCD (Greatest Common Divisor) and 1 to find LCM (Least Common Multiple)
+//These functions are only good to use on 2 numbers at a time, which seems unfortunate, but not with the '.reduce()' method!
+/* The reduce method lets us reuse the LCM function and change the 2nd argument of it with each iteration, which means the 
+last iteration will give us the least common multiple of the range 'max' and the multiple that passed with every other number */
+
+/* This challenge was not only difficult for me to do on my own, but also apparently beyond the scope of what I thought the '.reduce()' 
+method was supposed to be capable of. I think the nature of this problem and my understanding of the concepts involved in it were grounds 
+for seeking help. */
