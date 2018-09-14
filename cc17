@@ -1,0 +1,17 @@
+function binaryAgent(str) {
+  let binArr = str.split(" ");
+  function translate (bin) {
+    let decimal = parseInt(bin, 2); //Converts binary numbers to integers because the radix is 2
+    return decimal      
+  }
+  let decArr = binArr.map(translate); //Uses function to convert every binary to decimal and returns a new array of those decimals
+  function toCharacter (num) {
+    let character = String.fromCharCode(num); //Converts 'num' integers to characters by accessing the characters at ASCii index 'num'
+    return character
+  }
+  let charArr = decArr.map(toCharacter); //Uses function to convert all decimals to characters and returns a new array of characters
+  return charArr.join(""); //Joins the characters back into a string and returns it as the result
+}
+
+binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 
+01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
