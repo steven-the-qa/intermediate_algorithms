@@ -1,0 +1,26 @@
+function steamrollArray(arr) {
+  
+  let result = [];  //Declare variable to hold values
+
+  function steamRoller(val){ 
+  //If the value isn't an array, we push it to 'result'
+  if (!Array.isArray(val)){
+  result.push(val);
+  }
+  //If the value is an array, we iterate over ITS values
+  //This can be done with recursion
+  //By this we mean calling the function inside itself
+  else {
+    for (let i in val){
+      steamRoller(val[i]);
+    }
+  }
+  //By the end of this loop, we'll have the value we want
+  //This is only good for 1 index of the 'arr' array, though
+  //We have to call it on every index
+  }
+  arr.forEach(steamRoller); //This calls it for all indices
+  return result;
+}
+
+steamrollArray([1, [2], [3, [[4]]]]);
