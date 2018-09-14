@@ -1,0 +1,12 @@
+function dropElements(arr, func) {
+  // Drop them elements.
+
+while (func(arr[0]) === false) {
+  arr.shift();
+}
+return arr;
+}
+dropElements([1, 2, 3], function(n) {return n < 3; });
+
+//This algorithm removes elements from an array until one of the elements passed to the function causes the function to return true
+//I'm not sure why this one was so late in section because it was really easy, at least I thought so
