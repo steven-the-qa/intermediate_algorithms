@@ -1,0 +1,37 @@
+var Person = function(firstAndLast) {
+  // Complete the method below and implement the others similarly
+  var name = firstAndLast.split(" ")[0] + " " + firstAndLast.split(" ")[1];
+  var first = firstAndLast.split(" ")[0];
+  var last = firstAndLast.split(" ")[1];
+
+  this.setFullName = function (newName) {
+    name = newName;
+    first = newName.split(" ")[0];
+    last = newName.split(" ")[1];
+  };
+  this.setFirstName = function (newName) {
+    first = newName;
+    name = first + " " + last;
+  };
+  this.setLastName = function (newName) {
+    last = newName;
+    name = first + " " + last;
+  };
+
+  this.getFullName = function() {
+    return name;
+  };
+  this.getFirstName = function() {
+    return first;
+  };
+  this.getLastName = function() {
+    return last;
+  };
+};
+var bob = new Person('Bob Ross');
+bob.getFullName();
+
+//The goal of this challenge was to make a constructor function to create a Person
+//The catch was you can only have 6 keys (the 6 methods), and you must not be able to access properties without the methods
+//So you had to make sure the scope of the properties was the methods
+//Apparently variables don't count as keys as long as you don't declare them with 'this.' syntax
