@@ -1,0 +1,12 @@
+function truthCheck(collection, pre) {
+  for (let i in collection) { //Iterate through the collection
+    if (collection[i]){ //If the index holds a value other than undefined, proceed
+      return collection.every((val) => { //Check every value in collection for a condition
+        return val[pre] //If every value that corresponds with the 'pre' key is truthy, return true
+      })
+    }
+  }
+}
+
+truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, 
+{"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
