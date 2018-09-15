@@ -1,0 +1,34 @@
+function addTogether() {
+  let args = [];
+  for (let i in arguments){
+    args.push(arguments[i]);
+  }
+  if (args.some((val) => {
+    return typeof val !== 'number'
+  })){
+    return undefined
+  }
+  else if (args.length === 2 && args.every((val) => {
+    return typeof val === 'number'
+  })){
+    return arguments[0] + arguments[1]
+  }
+  else {
+    return function addTwoAnd(val){
+      if (typeof val === 'number'){
+      return val + 2
+      }
+  }
+}
+}
+console.log(addTogether(2)([3]));
+
+//The instructions for this were really strange tbh
+//I had to build a function that sums 2 arguments, but sometimes there was only 1 argument
+//In that case, I'd need to check if the argument were a number, because sometimes it'd be a string
+//Even the cases with 2 arguments sometimes had a string or array
+//If ALL values are NOT numbers, I must return undefined
+//If they ARE all numbers, I sum them if there are 2
+//If there is only 1 argument and it is a number, I must return a function to add 2 to the argument
+//Honestly I still don't see how this would ever be useful but I'm sure one day I'll find out
+//Very weird problem indeed
