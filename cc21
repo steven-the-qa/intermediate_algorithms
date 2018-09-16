@@ -1,0 +1,3 @@
+var GM = 398600.4418;
+  var earthRadius = 6367.4447;
+  var orbitalPeriod = Math.round(Math.PI * 2 * Math.sqrt((Math.pow((arr[0]['avgAlt'] + earthRadius),3))/GM));
