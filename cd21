@@ -1,3 +1,18 @@
-var GM = 398600.4418;
+function orbitalPeriod(arr) {
+  var GM = 398600.4418;
   var earthRadius = 6367.4447;
-  var orbitalPeriod = Math.round(Math.PI * 2 * Math.sqrt((Math.pow((arr[0]['avgAlt'] + earthRadius),3))/GM));
+  for (let i in arr){
+  var orbitalPeriod = Math.round(Math.PI * 2 * Math.sqrt((Math.pow((arr[i]['avgAlt'] + earthRadius),3))/GM));
+  delete arr[i]['avgAlt'];
+  arr[i].orbitalPeriod = orbitalPeriod;
+  }
+  return arr
+}
+
+orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);
+
+/* This algorithm takes an array of objects and a few mathematical constants and asks me to find the orbital period and replace the 
+average altitude property in each object in the array with the orbital period found from that object's average altitude. Then it wants me 
+to return the array of objects with the new orbital period property */
+
+//This algorithm is an example of how looping can be used to make complex calculations for multiple values
